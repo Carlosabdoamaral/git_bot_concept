@@ -1,9 +1,11 @@
 <?php
 
-$msg = readline("Mensagem do commit: ");
+// command - 1
+$msg = readline("Commit message: ");
 gitPush($msg);
-//updateOtherRepository();
 
+// command - 2
+//updateOtherRepository();
 
 function gitPush($msg) {
     $pwd = exec("pwd");
@@ -12,7 +14,7 @@ function gitPush($msg) {
     exec("git push");
 }
 
-function updateOtherRepository() {
+function updateOtherRepository(): void {
     $cr = getCurrentRepositoryURL();
     $nr = readline("New repository URL: ");
 
@@ -29,4 +31,3 @@ function updateOtherRepository() {
 }
 
 function getCurrentRepositoryURL(): string { return exec("git config --get remote.origin.url"); }
-?>
